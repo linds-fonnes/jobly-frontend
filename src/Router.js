@@ -1,14 +1,15 @@
 import React from "react";
+
 import { Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
 import NavBar from "./Nav";
-import Home from "./routes/Home";
-import Companies from "./routes/Companies";
-import Company from "./routes/Company";
-import Jobs from "./routes/Jobs";
-import Job from "./routes/Job";
-import Login from "./routes/Login";
-import Signup from "./routes/Signup";
-import Profile from "./routes/Profile";
+import Home from "./components/Home";
+import Companies from "./components/companies/CompanyList";
+import Company from "./components/companies/CompanyDetail";
+import Jobs from "./components/jobs/JobsList";
+import Job from "./components/jobs/JobCard";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Profile from "./components/Profile";
 
 function Routes() {
   return (
@@ -30,7 +31,7 @@ function Routes() {
         <Route exact path="/jobs">
           <Jobs />
         </Route>
-        <Route exact path="companies/:company">
+        <Route exact path="/companies/:handle">
           <Company />
         </Route>
         <Route exact path="/companies">
