@@ -52,44 +52,74 @@ function Profile() {
   }
 
   return (
-    <div>
-      <h1>Profile</h1>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label>Username</label>
-          <p>{formData.username}</p>
-          <label>First Name</label>
-          <input
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-          ></input>
-          <label>Last Name</label>
-          <input
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-          ></input>
-          <label>Email</label>
-          <input
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          ></input>
-          <label>Password: </label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          ></input>
+    <div className="col-md-6 offset-md-3">
+      <h1 className="mt-2">Profile</h1>
+      <div className="card">
+        <div className="card-body">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group mt-1">
+              <label>Username</label>
+              <input
+                className="form-control"
+                placeholder={formData.username}
+                disabled
+              ></input>
+            </div>
+            <div className="form-group mt-1">
+              <label>First Name</label>
+              <input
+                className="form-control"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+              ></input>
+            </div>
+            <div className="form-group mt-1">
+              <label>Last Name</label>
+              <input
+                className="form-control"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+              ></input>
+            </div>
+            <div className="form-group mt-1">
+              <label>Email</label>
+              <input
+                className="form-control"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+              ></input>
+            </div>
+            <div className="form-group mt-1">
+              <label>Password: </label>
+              <input
+                className="form-control"
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+              ></input>
+            </div>
+            {error.length ? (
+              <p className="form-text mt-4 text-danger">{error}</p>
+            ) : null}
 
-          {error.length ? <span>{error}</span> : null}
+            {saved ? (
+              <p className="form-text mt-4 text-success">
+                Updated successfully!
+              </p>
+            ) : null}
 
-          {saved ? <span>Updated successfully!</span> : null}
-
-          <button onClick={handleSubmit}>Save Changes</button>
-        </form>
+            <button
+              className="btn btn-info mt-2 float-end"
+              onClick={handleSubmit}
+            >
+              Save Changes
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
