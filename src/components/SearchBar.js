@@ -18,7 +18,7 @@ function SearchBar({ term }) {
       <form onSubmit={handleSubmit}>
         <input
           name="searchTerm"
-          placeholder="Search for a company"
+          placeholder="Search for a term.."
           value={searchTerm}
           onChange={handleChange}
         ></input>

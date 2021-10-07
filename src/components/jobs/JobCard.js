@@ -1,6 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import UserContext from "../../UserContext";
 
 function JobCard({ id, title, salary, equity, companyName }) {
+  const { appliedToJob, applyToJob } = useContext(UserContext);
+  const [applied, setApplied] = useState();
+
+  useEffect(() => {
+    setApplied(appliedToJob(id));
+  }, [id, appliedToJob]);
+
+  async function handleApply(evt) {
+    if (appliedToJob(id)) return;
+    applyToJob(id);
+    setApplied(true);
+  }
+
   return (
     <div>
       <div>
@@ -16,6 +30,9 @@ function JobCard({ id, title, salary, equity, companyName }) {
             <small>Equity: {equity}</small>
           </p>
         )}
+        <button onClick={handleApply} disabled={applied}>
+          {applied ? "Applied" : "Apply"}
+        </button>
       </div>
     </div>
   );
