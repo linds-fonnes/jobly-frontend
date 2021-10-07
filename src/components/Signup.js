@@ -30,59 +30,81 @@ function Signup({ signup }) {
     }));
   }
   return (
-    <div>
-      <h1>Sign Up</h1>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Username</label>
-          <input
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          ></input>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          ></input>
-          <label htmlFor="firstName">First Name</label>
-          <input
-            id="firstName"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            required
-          ></input>
-          <label htmlFor="lastName">Last Name</label>
-          <input
-            id="lastName"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            required
-          ></input>
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          ></input>
+    <div className="container col-md-5 mt-4">
+      <h1 className="mb-3">Sign Up</h1>
+      <div className="card">
+        <div className="card-body">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group mt-1">
+              <label htmlFor="username">Username</label>
+              <input
+                className="form-control"
+                id="username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                required
+              ></input>
+            </div>
+            <div className="form-group mt-1">
+              <label htmlFor="password">Password</label>
+              <input
+                className="form-control"
+                id="password"
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              ></input>
+            </div>
+            <div className="form-group mt-1">
+              <label htmlFor="firstName">First Name</label>
+              <input
+                className="form-control"
+                id="firstName"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                required
+              ></input>
+            </div>
+            <div className="form-group mt-1">
+              <label htmlFor="lastName">Last Name</label>
+              <input
+                className="form-control"
+                id="lastName"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                required
+              ></input>
+            </div>
+            <div className="form-group mt-1">
+              <label htmlFor="email">Email</label>
+              <input
+                className="form-control"
+                id="email"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              ></input>
+            </div>
+            {error.length ? (
+              <p className="form-text mt-4 text-danger">{error}</p>
+            ) : null}
 
-          {error.length ? <span>{error}</span> : null}
-
-          <button type="submit" onSubmit={handleSubmit}>
-            Submit
-          </button>
-        </form>
+            <button
+              className="btn btn-info mt-2 float-end"
+              type="submit"
+              onSubmit={handleSubmit}
+            >
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

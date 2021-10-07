@@ -26,28 +26,43 @@ function Login({ login }) {
   }
 
   return (
-    <div>
-      <h1>Log In</h1>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Username</label>
-          <input
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          ></input>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          ></input>
-          {error.length ? <span>{error}</span> : null}
-          <button onSubmit={handleSubmit}>Submit</button>
-        </form>
+    <div className="Login container col-md-5 mt-4">
+      <h1 className="mb-3">Log In</h1>
+      <div className="card">
+        <div className="card-body">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group mt-1">
+              <label htmlFor="username">Username</label>
+              <input
+                className="form-control"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                required
+              ></input>
+            </div>
+            <div className="form-group mt-1">
+              <label htmlFor="password">Password</label>
+              <input
+                className="form-control"
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              ></input>
+            </div>
+            {error.length ? (
+              <p className="form-text mt-4 text-danger">{error}</p>
+            ) : null}
+            <button
+              className="btn btn-info mt-2 float-end"
+              onSubmit={handleSubmit}
+            >
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
