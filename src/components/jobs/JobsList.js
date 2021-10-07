@@ -3,6 +3,7 @@ import SearchBar from "../SearchBar";
 import JoblyApi from "../../api";
 import Loading from "../Loader";
 import JobCardList from "./JobCardList";
+import "../styles/JobsList.css";
 
 function JobsList() {
   const [jobs, setJobs] = useState(null);
@@ -19,7 +20,7 @@ function JobsList() {
   if (!jobs) return <Loading />;
 
   return (
-    <div>
+    <div className="JobsList col-md-8">
       <SearchBar term={search} />
       {jobs.length ? <JobCardList jobs={jobs} /> : <p>No results found</p>}
     </div>

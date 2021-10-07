@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import UserContext from "../../UserContext";
+import "../styles/JobCard.css";
 
 function JobCard({ id, title, salary, equity, companyName }) {
   const { appliedToJob, applyToJob } = useContext(UserContext);
@@ -16,9 +17,9 @@ function JobCard({ id, title, salary, equity, companyName }) {
   }
 
   return (
-    <div>
-      <div>
-        <h1>{title}</h1>
+    <div className="JobCard card my-3">
+      <div className="card-body">
+        <h1 className="card-title fs-3 my-2 text-capitalize">{title}</h1>
         <p>{companyName}</p>
         {salary && (
           <p>
@@ -30,7 +31,11 @@ function JobCard({ id, title, salary, equity, companyName }) {
             <small>Equity: {equity}</small>
           </p>
         )}
-        <button onClick={handleApply} disabled={applied}>
+        <button
+          className="btn btn-info float-end fw-bold"
+          onClick={handleApply}
+          disabled={applied}
+        >
           {applied ? "Applied" : "Apply"}
         </button>
       </div>

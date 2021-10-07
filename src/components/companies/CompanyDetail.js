@@ -22,7 +22,7 @@ function CompanyDetails() {
   if (!company) return <Loading />;
 
   return (
-    <div>
+    <div className="col-md-8 offset-md-2 mt-4">
       <h1>{company.name}</h1>
       <p>{company.description}</p>
       <JobCardList jobs={company.jobs} />
