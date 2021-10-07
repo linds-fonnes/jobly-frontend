@@ -1,0 +1,18 @@
+.NavBar {
+  background-color: white;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: darkblue;
+}
+
+.NavBar-links {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.NavBar-brand {
+  margin-left: 1rem;
+}
